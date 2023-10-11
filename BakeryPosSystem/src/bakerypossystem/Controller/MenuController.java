@@ -1,0 +1,33 @@
+package bakerypossystem.Controller;
+
+import javax.swing.Icon;
+
+public class MenuController {
+
+    public String getMenuName() {
+        return menuName;
+    }
+
+    public void setMenuName(String menuName) {
+        this.menuName = menuName;
+    }
+
+    public Icon getIcon() {
+        return icon;
+    }
+
+    public void setIcon(Icon icon) {
+        this.icon = icon;
+    }
+
+    public MenuController(String menuName, Icon icon) {
+        this.menuName = menuName;
+        this.icon = icon;
+    }
+
+    public MenuController() {
+    }
+
+    private String menuName;
+    private Icon icon;
+}

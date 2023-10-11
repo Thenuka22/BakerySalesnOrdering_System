@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="af7c6182-027f-4150-9998-e0e38865cf2c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="fromd" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tod" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[Select * 
+from salestable where EntryTime between $P{fromd} and $P{tod}]]>
+	</queryString>
+	<field name="OrderNumber" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ItemName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Quantity" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Price" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="EntryTime" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="Price_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{Price}]]></variableExpression>
+	</variable>
+	<variable name="Price_2" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{Price}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="163" y="18" width="266" height="61" uuid="740c402d-5c0a-45bf-b28c-a11aa23017bd"/>
+				<textElement>
+					<font fontName="Arial Black" size="36"/>
+				</textElement>
+				<text><![CDATA[Sales Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="11" width="100" height="20" uuid="a0b9ea2d-c31d-4ddc-a212-a140ddf701dc"/>
+				<textElement>
+					<font fontName="Arial Black" size="12"/>
+				</textElement>
+				<text><![CDATA[Order Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="11" width="100" height="20" uuid="d52ef44b-1520-491f-8927-7c2df09b3c4f"/>
+				<textElement>
+					<font fontName="Arial Black" size="12"/>
+				</textElement>
+				<text><![CDATA[Item Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="11" width="100" height="20" uuid="97d8e157-569e-4446-a440-17c4cce7f6b2"/>
+				<textElement>
+					<font fontName="Arial Black" size="12"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="406" y="11" width="100" height="20" uuid="50507c10-6228-40b8-bee6-37de9be121e5"/>
+				<textElement>
+					<font fontName="Arial Black" size="12"/>
+				</textElement>
+				<text><![CDATA[Qauntity]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="506" y="11" width="49" height="20" uuid="3b722022-f9a9-495a-b566-e195886e91be"/>
+				<textElement>
+					<font fontName="Arial Black" size="12"/>
+				</textElement>
+				<text><![CDATA[Price]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="7b5ffc2a-74bd-46d3-b5f2-5f7492b9a17b"/>
+				<textFieldExpression><![CDATA[$F{OrderNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" uuid="0ab6da91-027f-4e47-84f4-65540888c28d"/>
+				<textFieldExpression><![CDATA[$F{ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="100" height="20" uuid="8dc98ddc-d58c-404e-90f2-1f9828893ad5"/>
+				<textFieldExpression><![CDATA[$F{ItemName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="406" y="0" width="100" height="20" uuid="c72041a3-9fcb-43c3-98bb-cc6b1d922050"/>
+				<textFieldExpression><![CDATA[$F{Quantity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="506" y="0" width="49" height="20" uuid="eddfe870-0336-4671-a641-e253cdebaa16"/>
+				<textFieldExpression><![CDATA[$F{Price}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="49" splitType="Stretch"/>
+	</summary>
+</jasperReport>
